@@ -48,7 +48,7 @@ bot.on("message", function(message) {
         message.channel.send("**Leaders:**\n*MR3K*\n*Minty*");
     }                    
     if(msg == prefix + "botcode") {
-        message.channel.send("**Actual bot code! -** https://github.com/Osmulak122/revolve-bot/blob/master/index.js");
+        message.channel.send("**Actual bot code! -** https://github.com/Osmulak122/aethel/blob/master/index.js");
     }
      if(msg == prefix + "youtube") {
         message.channel.send("**Our Youtube! -** https://www.youtube.com/c/AethelFortnite");
