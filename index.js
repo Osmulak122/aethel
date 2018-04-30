@@ -39,9 +39,7 @@ bot.on("message", function(message) {
     
     if (message.channel == channel1) {
         message.delete();
-        }
-    }
-   
+    }  
     if (msg == prefix + "help") {
         message.channel.send("__**Commands :**__\n\n**!youtube**\n**!leaders**\n**!botcode**\n\n__**Music:**__\n**!musicbot** *Some music commands*");
     }
