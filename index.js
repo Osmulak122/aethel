@@ -38,7 +38,6 @@ bot.on("message", function(message) {
             }
     
     if (message.channel == channel1) {
-        if (message.author.hasPermission("ADMINISTRATOR")) { return;
         message.delete();
         }
     }
