@@ -103,7 +103,7 @@ bot.on("message", function(message) {
                     .addBlankField()
                     .addField("Players")
                     .addField("Designers","Genizz")
-                    .adField("Editors")
+                    .addField("Editors")
                     .setFooter('Roster might not be up to date')
                     .setColor(0xE6A12D)
                     message.channel.send(roster);
