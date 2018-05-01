@@ -109,11 +109,10 @@ bot.on("message", function(message) {
                     .setColor(0xFF2017)
                     message.channel.send(roster);
             }          
-            if(msg.startsWith(prefix + "fortnite")) {
+            if(msg.startsWith == "!stats") {
                     let username = args[0];
                     fortnite.user(username, platform).then(console.log);                    
-                }
-            }              
+                }                        
     });      
     bot.login(process.env.BOT_TOKEN);
 
