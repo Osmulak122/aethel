@@ -1,6 +1,13 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
+const fortnite = require('fortnite');
+const ft = new fortnite('3042528c-188c-41f8-9e75-51b3e7288cd4');
 const prefix = "!";
+
+
+
+
+
 
 bot.on("guildMemberAdd", function(member) {
     var role_rules = member.guild.roles.find('name', 'Unaccepted Rules');
@@ -110,7 +117,18 @@ bot.on("message", function(message) {
                     .setFooter('Roster might not be up to date')
                     .setColor(0xE6A12D)
                     message.channel.send(roster);
-            }              
+            }
+                if(msg.startsWith(prefix + "fortnite")) {
+                    if(args[1] === ""){ message.channel.send("No nickname provided"); return;
+                } else {
+                    var name = args[1]
+
+                    ft.user(name, "pc").then(console.log);
+                    
+
+                }
+
+                }              
 });      
 bot.login("NDQwNTcyMjkxOTA3MzIxODU3.DcnXUg.KNivrEvp0vaaOCPIeH1DtJPjc34");
 
