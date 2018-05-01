@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
+const Client = require('fortnite');
+const fortnite = new Client('3042528c-188c-41f8-9e75-51b3e7288cd4');
 const prefix = "!";
 
 bot.on("guildMemberAdd", function(member) {
@@ -69,7 +71,7 @@ bot.on("message", function(message) {
                 return;
             }
 
-            const fetched = await message.channel.fetchMessages({limit: args[0]} + 1);
+            const fetched = await message.channel.fetchMessages({limit: args[0]});
             message.channel.bulkDelete(fetched)
                 .catch(error => message.channel.send("Can't clear the chat!"));
 
@@ -107,9 +109,15 @@ bot.on("message", function(message) {
                     .setColor(0xFF2017)
                     message.channel.send(roster);
             }          
- 
-              
-});      
-bot.login(process.env.BOT_TOKEN);
+            if(msg.startsWith(prefix + "fortnite")) {
+                    if(args[1] === ""){ message.channel.send("No nickname provided"); return;
+                } else {
+                    var name = args[1]
+                    fortnite.user(name, "pc").then(console.log);                    
+                }
+            }              
+    });      
+    bot.login(process.env.BOT_TOKEN);
+
 
 
