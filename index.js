@@ -111,7 +111,7 @@ bot.on("message", function(message) {
             }          
             if(msg.startsWith("!stats")) {
                     let username = args[0];
-                    let platform = "pc"
+                    let platform = "pc";
                     fortnite.user(username, platform).then(console.log);                    
                 }                        
     });      
