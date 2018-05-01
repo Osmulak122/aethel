@@ -95,6 +95,19 @@ bot.on("message", function(message) {
                     
                 message.channel.send(musichelp);
         }
+            if(msg == prefix + "roster") {
+                var roster = new Discord.RichEmbed()
+                    .setDescription("Aethel Roster")
+                    .setThumbnail(bot.guilds.find("id", "440424875346231296").iconURL)
+                    .addField("Leaders", "**MR3K\nMinty\nJdL**")
+                    .addBlankField()
+                    .addField("Players")
+                    .addField("Designers","Genizz")
+                    .adField("Editors")
+                    .setFooter('Roster might not be up to date')
+                    .setColor(0xE6A12D)
+                    message.channel.send(roster);
+            }          
  
               
 });      
