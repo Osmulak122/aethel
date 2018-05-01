@@ -100,10 +100,9 @@ bot.on("message", function(message) {
                     .setDescription("Aethel Roster")
                     .setThumbnail(bot.guilds.find("id", "440424875346231296").iconURL)
                     .addField("Leaders", "**MR3K\nMinty\nJdL**")
-                    .addBlankField()
-                    .addField("Players")
-                    .addField("Designers","Genizz")
-                    .addField("Editors")
+                    .addField("Players", "**Player\nPlayer\nPlayer\nPlayer**")
+                    .addField("Designers","**Genizz\nDesigner\nDesigner\nDesigner**")
+                    .addField("Editors", "**Editor\nEditor\nEditor**)
                     .setFooter('Roster might not be up to date')
                     .setColor(0xE6A12D)
                     message.channel.send(roster);
