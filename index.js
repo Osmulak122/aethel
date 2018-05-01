@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
+const fortnite = require('fortnite');
+const ft = new fortnite('3042528c-188c-41f8-9e75-51b3e7288cd4');
 const prefix = "!";
 
 bot.on("guildMemberAdd", function(member) {
@@ -106,7 +108,31 @@ bot.on("message", function(message) {
                     .setFooter('Roster might not be up to date')
                     .setColor(0xFF2017)
                     message.channel.send(roster);
-            }          
+            }
+     if(msg == prefix + "roster") {
+                var roster = new Discord.RichEmbed()
+                    .setDescription("Aethel Roster")
+                    .setThumbnail(bot.guilds.find("id", "440424875346231296").iconURL)
+                    .addField("Leaders", "**MR3K\nMinty\nJdL**")
+                    .addBlankField()
+                    .addField("Players")
+                    .addField("Designers","Genizz")
+                    .addField("Editors")
+                    .setFooter('Roster might not be up to date')
+                    .setColor(0xE6A12D)
+                    message.channel.send(roster);
+            }
+                if(msg.startsWith(prefix + "fortnite")) {
+                    if(args[1] === ""){ message.channel.send("No nickname provided"); return;
+                } else {
+                    var name = args[1]
+
+                    ft.user(name, "pc").then(console.log);
+                    
+
+                }
+
+                }     
  
               
 });      
