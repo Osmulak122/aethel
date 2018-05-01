@@ -110,10 +110,7 @@ bot.on("message", function(message) {
                     message.channel.send(roster);
             }          
             if(msg.startsWith(prefix + "fortnite")) {
-                    if(args[0] === ""){ message.channel.send("No nickname provided"); return;
-                } else {
                     let username = args[0];
-                    let platform = args[1] || "pc";
                     fortnite.user(username, platform).then(console.log);                    
                 }
             }              
