@@ -108,13 +108,25 @@ bot.on("message", function(message) {
                     .setFooter('Roster might not be up to date')
                     .setColor(0xFF2017)
                     message.channel.send(roster);
-            }          
+            }
             if(msg.startsWith("!stats")) {
-                    let username = args[0];
-                    let platform = "pc";
-                    fortnite.user(username, platform).then(console.log);                    
-                }                        
-    });      
+                let username = args[0];
+                let platform = "pc";
+                let data = ft.user(username, platform).then(data => {
+
+                    let statistics = data.lifetimeStats;
+                    let kills = statistics.find(s => s.stat == `kills`);
+ 
+                    var statsembed = new Discord.RichEmbed()
+                        .setTitle('Fortnite Stats')
+                        .setAuthor(data.username)
+                        .addField("kills", kills.value, true)
+
+                        message.channel.send(statsembed);
+
+                });                  
+            }                    
+});    
     bot.login(process.env.BOT_TOKEN);
 
 
