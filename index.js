@@ -112,7 +112,7 @@ bot.on("message", function(message) {
             if(msg.startsWith("!stats")) {
                 let username = args[0];
                 let platform = "pc";
-                let data = ft.user(username, platform).then(data => {
+                let data = fortnite.user(username, platform).then(data => {
 
                     let statistics = data.lifetimeStats;
                     let kills = statistics.find(s => s.stat == `kills`);
