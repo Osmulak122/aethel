@@ -109,24 +109,12 @@ bot.on("message", function(message) {
                     .setColor(0xFF2017)
                     message.channel.send(roster);
             }
-            if(msg.startsWith("!stats")) {
+             if(msg.startsWith("!stats")) {
                 let username = args[0];
                 let platform = "pc";
-                let data = fortnite.user(username, platform).then(data => {
-
-                    let statistics = data.lifetimeStats;
-                    let kills = statistics.find(s => s.stat == `kills`);
- 
-                    var statsembed = new Discord.RichEmbed()
-                        .setTitle('Fortnite Stats')
-                        .setAuthor(data.username)
-                        .addField("kills", kills.value, true)
-
-                        message.channel.send(statsembed);
-
-                });                  
+                fortnite.user(username, platform).then(data => console.log(data));                  
             }                    
-});    
+});   
     bot.login(process.env.BOT_TOKEN);
 
 
