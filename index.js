@@ -111,9 +111,12 @@ bot.on("message", function(message) {
                     message.channel.send(roster);
             }
             if(msg.startsWith("!stats")) {
-                let platform = args[1] || "pc";
                 var playerName = args[0];
-
+                var platform = args[1];
+                var mode = args[2] || "all";
+                if(!args[0]) {
+                    message.channel.send("https://cdn.discordapp.com/attachments/440590887022493736/441631716256514068/Group_5.png")
+                }
                 var options = {
                 method: "GET",
                 url: `https://fortnite.y3n.co/v2/player/${playerName}`,
@@ -126,10 +129,11 @@ bot.on("message", function(message) {
                 if (!error && response.statusCode == 200) {
                     var stats = JSON.parse(body);
 
-                    //statsembed
-
-                    var statsembed = new Discord.RichEmbed()
-                        .setTitle("Fortnite Stats")
+                    //statsembed pc
+                if(platform == "pc") {
+                    if(mode == "all") { 
+                        var statsembed = new Discord.RichEmbed()
+                        .setTitle("All Combined Stats")
                         .setAuthor(playerName)
                         .addField(`Wins`, `${stats.br.stats.pc.all.wins}`, true)
                         .addField(`Win Rate`, `${stats.br.stats.pc.all.winRate}`, true)
@@ -141,11 +145,131 @@ bot.on("message", function(message) {
                         .setThumbnail(message.author.avatarURL)
                         .setFooter(`Last stats update :  ${stats.lastUpdate}`)
 
-                        message.channel.send(statsembed);
+                        return message.channel.send(statsembed);
 
+                    } else if(mode == "solo") {
+                        var solopc = new Discord.RichEmbed()
+                        .setTitle("Solo Mode Stats")
+                        .setAuthor(playerName)
+                        .addField(`Wins`, `${stats.br.stats.pc.solo.wins}`, true)
+                        .addField(`Win Rate`, `${stats.br.stats.pc.solo.winRate}`, true)
+                        .addField(`Total Score`, `${stats.br.stats.pc.solo.score}`, true)
+                        .addField(`Kills`, `${stats.br.stats.pc.solo.kills}`, true)
+                        .addField(`KD`, `${stats.br.stats.pc.solo.kpd}`, true)
+                        .addField(`Matches Played`, `${stats.br.stats.pc.solo.matchesPlayed}`, true)
+                        .setColor(0xFF2017)
+                        .setThumbnail(message.author.avatarURL)
+                        .setFooter(`Last stats update :  ${stats.lastUpdate}`)
+
+                        return message.channel.send(solopc);
+                
+                    } else if (mode == "duo") {
+                        var duopc = new Discord.RichEmbed()
+                        .setTitle("Duo Mode Stats")
+                        .setAuthor(playerName)
+                        .addField(`Wins`, `${stats.br.stats.pc.duo.wins}`, true)
+                        .addField(`Win Rate`, `${stats.br.stats.pc.duo.winRate}`, true)
+                        .addField(`Total Score`, `${stats.br.stats.pc.duo.score}`, true)
+                        .addField(`Kills`, `${stats.br.stats.pc.duo.kills}`, true)
+                        .addField(`KD`, `${stats.br.stats.pc.duo.kpd}`, true)
+                        .addField(`Matches Played`, `${stats.br.stats.pc.duo.matchesPlayed}`, true)
+                        .setColor(0xFF2017)
+                        .setThumbnail(message.author.avatarURL)
+                        .setFooter(`Last stats update :  ${stats.lastUpdate}`)
+    
+                        return message.channel.send(duopc);
+
+                    } else if (mode == "squad") {
+                        var squadpc = new Discord.RichEmbed()
+                            .setTitle("Squad Mode Stats")
+                            .setAuthor(playerName)
+                            .addField(`Wins`, `${stats.br.stats.pc.squad.wins}`, true)
+                            .addField(`Win Rate`, `${stats.br.stats.pc.squad.winRate}`, true)
+                            .addField(`Total Score`, `${stats.br.stats.pc.squad.score}`, true)
+                            .addField(`Kills`, `${stats.br.stats.pc.squad.kills}`, true)
+                            .addField(`KD`, `${stats.br.stats.pc.squad.kpd}`, true)
+                            .addField(`Matches Played`, `${stats.br.stats.pc.squad.matchesPlayed}`, true)
+                            .setColor(0xFF2017)
+                            .setThumbnail(message.author.avatarURL)
+                            .setFooter(`Last stats update :  ${stats.lastUpdate}`)
+        
+                        return message.channel.send(squadpc);
+                    }
+                }
+                            
+                            //ps4 stats
+                    if(platform == "ps4") {
+                        if(mode == "all") {
+                        var statsembedps4 = new Discord.RichEmbed()
+                        .setTitle("All Combined Stats")
+                        .setAuthor(playerName)
+                        .addField(`Wins`, `${stats.br.stats.ps4.all.wins}`, true)
+                        .addField(`Win Rate`, `${stats.br.stats.ps4.all.winRate}`, true)
+                        .addField(`Total Score`, `${stats.br.stats.ps4.all.score}`, true)
+                        .addField(`Kills`, `${stats.br.stats.ps4.all.kills}`, true)
+                        .addField(`KD`, `${stats.br.stats.ps4.all.kpd}`, true)
+                        .addField(`Matches Played`, `${stats.br.stats.ps4.all.matchesPlayed}`, true)
+                        .setColor(0xFF2017)
+                        .setThumbnail(message.author.avatarURL)
+                        .setFooter(`Last stats update :  ${stats.lastUpdate}`)
+        
+                        return message.channel.send(statsembedps4);
+                           
+                    } else if (mode == "solo") {
+                        var solops4 = new Discord.RichEmbed()
+                            .setTitle("Solo Mode Stats")
+                            .setAuthor(playerName)
+                            .addField(`Wins`, `${stats.br.stats.ps4.solo.wins}`, true)
+                            .addField(`Win Rate`, `${stats.br.stats.ps4.solo.winRate}`, true)
+                            .addField(`Total Score`, `${stats.br.stats.ps4.solo.score}`, true)
+                            .addField(`Kills`, `${stats.br.stats.ps4.solo.kills}`, true)
+                            .addField(`KD`, `${stats.br.stats.ps4.solo.kpd}`, true)
+                            .addField(`Matches Played`, `${stats.br.stats.ps4.solo.matchesPlayed}`, true)
+                            .setColor(0xFF2017)
+                            .setThumbnail(message.author.avatarURL)
+                            .setFooter(`Last stats update :  ${stats.lastUpdate}`)
+            
+                            return message.channel.send(solops4);
+            
+                    } else if (mode == "duo") {
+                        var duops4 = new Discord.RichEmbed()
+                            .setTitle("Duo Mode Stats")
+                            .setAuthor(playerName)
+                            .addField(`Wins`, `${stats.br.stats.ps4.duo.wins}`, true)
+                            .addField(`Win Rate`, `${stats.br.stats.ps4.duo.winRate}`, true)
+                            .addField(`Total Score`, `${stats.br.stats.ps4.duo.score}`, true)
+                            .addField(`Kills`, `${stats.br.stats.ps4.duo.kills}`, true)
+                            .addField(`KD`, `${stats.br.stats.ps4.duo.kpd}`, true)
+                            .addField(`Matches Played`, `${stats.br.stats.ps4.duo.matchesPlayed}`, true)
+                            .setColor(0xFF2017)
+                            .setThumbnail(message.author.avatarURL)
+                            .setFooter(`Last stats update :  ${stats.lastUpdate}`)
+                
+                            return message.channel.send(duops4);
+            
+                    } else if (mode == "squad") {
+                        var squadps4 = new Discord.RichEmbed()
+                            .setTitle("Squad Mode Stats")
+                            .setAuthor(playerName)
+                            .addField(`Wins`, `${stats.br.stats.ps4.squad.wins}`, true)
+                            .addField(`Win Rate`, `${stats.br.stats.ps4.squad.winRate}`, true)
+                            .addField(`Total Score`, `${stats.br.stats.ps4.squad.score}`, true)
+                            .addField(`Kills`, `${stats.br.stats.ps4.squad.kills}`, true)
+                            .addField(`KD`, `${stats.br.stats.ps4.squad.kpd}`, true)
+                            .addField(`Matches Played`, `${stats.br.stats.ps4.squad.matchesPlayed}`, true)
+                            .setColor(0xFF2017)
+                            .setThumbnail(message.author.avatarURL)
+                            .setFooter(`Last stats update :  ${stats.lastUpdate}`)
+                    
+                            return message.channel.send(squadps4);
+                    } 
+                }
+                        
+                    
                 } else {
                     console.log(error);
                 }
+            
             })    
             
         }
