@@ -289,7 +289,7 @@ bot.on("message", function(message) {
             }  else {
                 console.log(error);
             }
-          if(msg.startsWith("discord.gg/")) {
+          if(msg.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg/")) {
               message.delete();
               message.channel.send("Promotion of discord servers is not allowed");
           }
