@@ -25,7 +25,7 @@ bot.on("message", function(message) {
     var args = cont.slice(1);
     var msgauthor = message.author;
     var channel1 = bot.channels.find('name', 'readme');
-    var member_role bot.guild.roles.find("name", "Member");
+    var member_role = bot.guild.roles.find("name", "Member");
 
 
     if(message.channel == channel1) {
