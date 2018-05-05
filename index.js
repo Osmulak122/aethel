@@ -25,6 +25,7 @@ bot.on("message", function(message) {
     var args = cont.slice(1);
     var msgauthor = message.author;
     var channel1 = bot.channels.find('name', 'readme');
+    var member_role message.guild.roles.find("name", "Member");
 
 
     if(message.channel == channel1) {
@@ -59,10 +60,15 @@ bot.on("message", function(message) {
         message.channel.send("**Invite links aren't allowed**");
     }
     //antiminty
+    
     if(message.isMentioned("160669529507233792")) {
+        if message.member.hasPermission(member_role) {
+        return;   
+        }
         message.delete();
         message.channel.send("**Someone tried to tag Minty OMEGALUL**");
     }
+    
 
     
     if(msg.startsWith(prefix + "clear")) {
