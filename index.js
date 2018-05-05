@@ -56,7 +56,7 @@ bot.on("message", function(message) {
     }
     if(msg.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg")) {
         message.delete();
-        message.channel.send("**Invite links aren't allowed**)"
+        message.channel.send("**Invite links aren't allowed**");
 
     if(msg.startsWith(prefix + "clear")) {
 
@@ -80,7 +80,7 @@ bot.on("message", function(message) {
             message.channel.bulkDelete(fetched)
                 .catch(error => message.channel.send("Can't clear the chat!"));
 
-                bot.channels.find("name", "bot-logs").send(`**${msgauthor.username}**` + " cleared : " + `**${fetched.size}**` + "**messages in channel :** " + (channelID));
+                bot.channels.find("name", "bot-logs").send(`**${msgauthor.username}**` + " cleared : " + `**${fetched.size}**` + "messages in channel : " + (channelID));
 
  }
         clear();
