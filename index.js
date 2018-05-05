@@ -61,7 +61,7 @@ bot.on("message", function(message) {
     //antiminty
     if(message.isMentioned("160669529507233792")) {
         message.delete();
-        message.channel.send("**Someone tried to tag Minty OMEGALUL"
+        message.channel.send("**Someone tried to tag Minty OMEGALUL");
     }
 
     
