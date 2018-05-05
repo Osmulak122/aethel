@@ -62,7 +62,7 @@ bot.on("message", function(message) {
     //antiminty
     
     if(message.isMentioned("160669529507233792")) {
-        if message.member.hasPermission(member_role) {
+        if(message.member.hasPermission(member_role)) {
         return;   
         }
         message.delete();
