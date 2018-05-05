@@ -54,7 +54,7 @@ bot.on("message", function(message) {
         message.channel.send("**Our Youtube! -** https://www.youtube.com/AethelFortnite");
          //invite links
     }
-    if(message.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg")) {
+    if(msg.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg")) {
         message.delete();
         message.channel.send("**Invite links aren't allowed**");
     }
