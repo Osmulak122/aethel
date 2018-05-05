@@ -289,6 +289,10 @@ bot.on("message", function(message) {
             }  else {
                 console.log(error);
             }
+          if(msg.startsWith("discord.gg/")) {
+              message.delete();
+              message.channel.send("Promotion of discord servers is not allowed");
+          }
         })
     }
 
