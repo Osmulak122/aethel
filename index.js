@@ -76,7 +76,7 @@ bot.on("message", function(message) {
             message.channel.bulkDelete(fetched)
                 .catch(error => message.channel.send("Can't clear the chat!"));
 
-                bot.channels.find("name", "bot-logs").send(`**${msgauthor.username}**` + " cleared : " + `**${fetched.size}**` + "** messages in channel :** " + (channelID));
+                bot.channels.find("name", "bot-logs").send(`**${msgauthor.username}**` + " cleared : " + `**${fetched.size}**` + "**messages in channel :** " + (channelID));
 
  }
         clear();
