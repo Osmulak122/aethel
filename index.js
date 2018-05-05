@@ -5,7 +5,7 @@ var request = require('request');
 
 
 bot.on("guildMemberAdd", function(member) {
-    var member_role = member.guild.roles.find("name", "Member");
+    
     var role_rules = member.guild.roles.find('name', 'Unaccepted Rules');
     member.addRole(role_rules)
 });
@@ -63,7 +63,7 @@ bot.on("message", function(message) {
     //antiminty
     
     if(message.isMentioned("160669529507233792")) {
-        if(message.member.roles.has(member_role)) {
+        if(message.member.roles.find("name","Member")) {
         return;   
         }
         message.delete();
