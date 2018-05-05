@@ -54,10 +54,16 @@ bot.on("message", function(message) {
         message.channel.send("**Our Youtube! -** https://www.youtube.com/AethelFortnite");
          //invite links
     }
-    if(msg.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg")) {
+    if(message.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg")) {
         message.delete();
         message.channel.send("**Invite links aren't allowed**");
+    }
+    //antiminty
+    if(message.isMentioned("160669529507233792")) {
+        message.delete();
+    }
 
+    
     if(msg.startsWith(prefix + "clear")) {
 
 
