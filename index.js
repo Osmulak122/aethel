@@ -5,6 +5,7 @@ var request = require('request');
 
 
 bot.on("guildMemberAdd", function(member) {
+    var member_role = member.guild.roles.find("name", "Member");
     var role_rules = member.guild.roles.find('name', 'Unaccepted Rules');
     member.addRole(role_rules)
 });
@@ -25,7 +26,7 @@ bot.on("message", function(message) {
     var args = cont.slice(1);
     var msgauthor = message.author;
     var channel1 = bot.channels.find('name', 'readme');
-    var member_role = bot.guild.roles.find("name", "Member");
+    
 
 
     if(message.channel == channel1) {
