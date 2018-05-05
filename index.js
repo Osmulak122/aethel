@@ -53,6 +53,11 @@ bot.on("message", function(message) {
      if(msg == prefix + "youtube") {
         message.channel.send("**Our Youtube! -** https://www.youtube.com/AethelFortnite");
     }
+    //antidiscord
+    if(msg.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg/")) {
+              message.delete();
+              message.channel.send("Promotion of discord servers is not allowed");
+          }
 
     if(msg.startsWith(prefix + "clear")) {
 
@@ -289,10 +294,6 @@ bot.on("message", function(message) {
             }  else {
                 console.log(error);
             }
-          if(msg.startsWith("https://discord.gg/" || "http://discord.gg/" || "discord.gg/")) {
-              message.delete();
-              message.channel.send("Promotion of discord servers is not allowed");
-          }
         })
     }
 
