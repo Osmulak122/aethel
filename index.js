@@ -46,11 +46,12 @@ bot.on("message", function(message) {
     if (message.channel == rcchanel) {
         message.delete();
     }
-    if(msg.startsWith(prefix + "apply")) {
-        if(!args[0]) {
-            message.author.send("*Please provide a role u want to apply as!*");
-            message.author.send("**Player, Designer or Editor**")
-            return;
+    if(message.channel == rcchanel) {
+        if(msg.startsWith(prefix + "apply")) {
+            if(!args[0]) {
+                message.author.send("*Please provide a role u want to apply as!*");
+                message.author.send("**Player, Designer or Editor**")
+                return;
         }
         if(!args[1]) {
             message.author.send("*Please provide minimum one link (max 3) of your plays, channel, portfolio*");
@@ -74,6 +75,7 @@ bot.on("message", function(message) {
     } else {
         return message.author.send("**Incorrect fromat**, try again!\n!apply role link1 link2 link3\n\nExample : *!apply Player <https://link.com> <https://link2.com> <https://link3.com>*");
         }
+    }    
    
     if (msg == prefix + "help") {
         message.channel.send("__**Commands :**__\n\n**!youtube**\n**!leaders**\n**!botcode**\n\n__**Music:**__\n**!musicbot** *Some music commands*");
