@@ -54,7 +54,7 @@ bot.on("message", function(message) {
                 return;
         }
         if((args[0] == "help")&&(!args[1])) {
-            message.author.send("**How to apply**\n!apply role link1 link2 link3\n**Example:**\n!apply Player https://link.com/ https://link2.com/ https://link3.com/\n**MAX 3 LINKS**\nSupported roles : **Player, Editor, Designer**");
+            message.author.send("**How to apply**\n!apply role link1 link2 link3\n\n**Example:**\n!apply Player <https://link.com/> <https://link2.com/> <https://link3.com/>\n\n**MAX 3 LINKS**\nSupported roles : **Player, Editor, Designer**");
             return;
         }
         if(!args[1]) {
@@ -77,7 +77,7 @@ bot.on("message", function(message) {
 
         bot.channels.find("name", "applications").send(rcembed);
     } else {
-        return message.author.send("**Incorrect fromat**, try again!\n!apply role link1 link2 link3\n\nExample : *!apply Player <https://link.com> <https://link2.com> <https://link3.com>*");
+        return message.author.send("**Incorrect format**, try again!\n!apply role link1 link2 link3\n\nExample : *!apply Player <https://link.com> <https://link2.com> <https://link3.com>*");
         }
     }    
    
