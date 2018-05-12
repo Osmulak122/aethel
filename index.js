@@ -26,7 +26,7 @@ bot.on("message", function(message) {
     var args = cont.slice(1);
     var msgauthor = message.author;
     var channel1 = bot.channels.find('name', 'readme');
-    
+    var rcchanel = bot.channels.find("name", "recruitments");
 
 
     if(message.channel == channel1) {
@@ -41,6 +41,31 @@ bot.on("message", function(message) {
     
     if (message.channel == channel1) {
         message.delete();
+    }
+    //recruitments
+    if (message.channel == rcchanel) {
+        message.delete();
+    }
+    if(msg.startsWith(prefix + "apply")) {
+        if(!args[0]) {
+            message.author.send("*Please provide a role u want to apply as!*");
+            message.author.send("**Player, Designer or Editor**")
+        }
+        var role = args[0];
+        var link1 = args[1];
+        var link2 = args[2] || "Not provided";
+        var link3 = args[3] || "Not provided";
+
+        let rcembed = new Discord.RichEmbed()
+        .setTitle(`New application as ${role}`)
+        .setAuthor(message.author.id)
+        .addField("Link #1",link1)
+        .addField("Link #2",link2)
+        .addField("Link #3",link3)
+        .setColor(0xFF2017)
+        .setThumbnail(message.author.avatarURL)
+
+        bot.channels.find("name", "applications").send(rcembed);
     }
    
     if (msg == prefix + "help") {
