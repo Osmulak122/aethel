@@ -101,7 +101,7 @@ bot.on("message", function(message) {
         return;   
         }
         message.delete();
-        message.channel.send(`**${msgauthor.toString()} tried to tag Minty :LUL:**`);
+        message.channel.send(`**${msgauthor.toString()} tried to tag Minty** :LUL:`);
     }
     
 
