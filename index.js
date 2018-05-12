@@ -53,12 +53,13 @@ bot.on("message", function(message) {
                 message.author.send("**Player, Designer or Editor**")
                 return;
         }
+        if((args[0] == "help")&&(!args[1])) {
+            message.author.send("**How to apply**\n!apply role link1 link2 link3\n**Example:**\n!apply Player https://link.com/ https://link2.com/ https://link3.com/\n**MAX 3 LINKS**\nSupported roles : **Player, Editor, Designer**");
+            return;
+        }
         if(!args[1]) {
             message.author.send("*Please provide minimum one link (max 3) of your plays, channel, portfolio*");
             return;
-        }
-        if((args[0] == "help")&&(!args[1])) {
-            message.author.send("**How to apply**\n!apply role link1 link2 link3\n**Example:**\n!apply Player https://link.com/ https://link2.com/ https://link3.com/\n**MAX 3 LINKS**\nSupported roles : **Player, Editor, Designer**");
         }
         var role = args[0];
         var link1 = args[1];
