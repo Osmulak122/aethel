@@ -72,7 +72,7 @@ bot.on("message", function(message) {
 
         bot.channels.find("name", "applications").send(rcembed);
     } else {
-        return message.author.send("Incorrect fromat, try again!");
+        message.author.send("Incorrect fromat, try again!");
         return message.author.send("!apply role link1 link2 link3\nExample : *!apply Player <https://link.com> <https://link2.com> <https://link3.com>*");
         }
    
