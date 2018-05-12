@@ -58,7 +58,7 @@ bot.on("message", function(message) {
 
         let rcembed = new Discord.RichEmbed()
         .setTitle(`New application as ${role}`)
-        .setAuthor(message.author.id)
+        .setAuthor(message.author)
         .addField("Link #1",link1)
         .addField("Link #2",link2)
         .addField("Link #3",link3)
