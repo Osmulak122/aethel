@@ -50,6 +50,11 @@ bot.on("message", function(message) {
         if(!args[0]) {
             message.author.send("*Please provide a role u want to apply as!*");
             message.author.send("**Player, Designer or Editor**")
+            return;
+        }
+        if(!args[1]) {
+            message.author.send("*Please provide minimum one link (max 3) of your plays, channel, portfolio*");
+            return;
         }
         var role = args[0];
         var link1 = args[1];
@@ -58,7 +63,7 @@ bot.on("message", function(message) {
 
         let rcembed = new Discord.RichEmbed()
         .setTitle(`New application as ${role}`)
-        .setAuthor(message.author)
+        .setAuthor(message.author.username)
         .addField("Link #1",link1)
         .addField("Link #2",link2)
         .addField("Link #3",link3)
@@ -66,7 +71,10 @@ bot.on("message", function(message) {
         .setThumbnail(message.author.avatarURL)
 
         bot.channels.find("name", "applications").send(rcembed);
-    }
+    } else {
+        message.author.send("Incorrect fromat, try again!");
+        message.author.send("!apply role link1 link2 link3\nExample : *!apply Player https://link.com https://link2.com https://link3.com*");
+        }
    
     if (msg == prefix + "help") {
         message.channel.send("__**Commands :**__\n\n**!youtube**\n**!leaders**\n**!botcode**\n\n__**Music:**__\n**!musicbot** *Some music commands*");
