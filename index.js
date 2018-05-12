@@ -63,7 +63,7 @@ bot.on("message", function(message) {
 
         let rcembed = new Discord.RichEmbed()
         .setTitle(`New application as ${role}`)
-        .setAuthor(message.author.username)
+        .setAuthor(msgauthor.toString())
         .addField("Link #1",link1)
         .addField("Link #2",link2)
         .addField("Link #3",link3)
@@ -100,7 +100,7 @@ bot.on("message", function(message) {
         return;   
         }
         message.delete();
-        message.channel.send("**Someone tried to tag Minty OMEGALUL**");
+        message.channel.send(`**${msgauthor.toString()} tried to tag Minty OMEGALUL**`);
     }
     
 
