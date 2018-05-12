@@ -101,7 +101,7 @@ bot.on("message", function(message) {
         return;   
         }
         message.delete();
-        const LUL = client.emojis.find("name", "LUL");
+        const LUL = bot.emojis.find("name", "LUL");
         message.channel.send(`**${msgauthor.toString()} tried to tag Minty** ${LUL}`);
     }
     
